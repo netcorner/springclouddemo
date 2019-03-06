@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 /**
  * 配置多数据源
  */
-@Configuration
+//@Configuration
 public class MutileDataSourceConfig {
     @Autowired
     DefaultListableBeanFactory defaultListableBeanFactory;

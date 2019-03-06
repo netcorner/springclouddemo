@@ -3,6 +3,8 @@ package com.netcorner.webui.service;
 
 import com.netcorner.webui.aop.MultiTransactional;
 import com.netcorner.sqlmapper.SQLMap;
+import org.apache.commons.collections.map.HashedMap;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,6 +16,15 @@ import java.util.Map;
  */
 @Service
 public class CHRecordService {
+
+    @Cacheable(value = "user", key = "#root.targetClass + #id", unless = "#result eq null")
+    public Map<String,Object> testCache1(String id){
+        Map<String,Object> hash=new HashMap<>();
+        hash.put("id",id);
+        SQLMap sqlMap=SQLMap.getMap("datasource.b");
+        return sqlMap.executeForMap("finder",hash);
+    }
+
 
     @MultiTransactional
     //@Transactional(rollbackFor = Exception.class)

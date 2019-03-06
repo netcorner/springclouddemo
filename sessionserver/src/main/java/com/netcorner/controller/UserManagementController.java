@@ -1,5 +1,6 @@
 package com.netcorner.controller;
 
+import com.netcorner.utils.SpringTools;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,4 +44,6 @@ public class UserManagementController {
         map.put("message", request.getSession().getAttribute("map"));
         return map;
     }
+
+
 }
