@@ -6,7 +6,8 @@
     <modules>
 		<module>memberapiservice</module>
 		<module>orderapiservice</module>
-	</modules>
+        <module>management</module>
+    </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
