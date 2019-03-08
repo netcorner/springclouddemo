@@ -13,4 +13,9 @@ public class MemberServiceFallback implements MemberServiceFeign {
     public String getInfo() {
         return "个人信息暂无法访问，请稍后再试";
     }
+
+    @Override
+    public String register() {
+        return "暂时无法注册用户";
+    }
 }

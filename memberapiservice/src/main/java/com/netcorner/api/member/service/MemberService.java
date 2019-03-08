@@ -8,4 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface MemberService {
     @RequestMapping("/getInfo")
     String getInfo();
+    @RequestMapping("/register")
+    String register();
 }

@@ -59,6 +59,45 @@
             <artifactId>memberapiservice</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+		<dependency>
+			<groupId>com.codingapi.txlcn</groupId>
+			<artifactId>txlcn-tc</artifactId>
+			<version>5.0.2.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.codingapi.txlcn</groupId>
+			<artifactId>txlcn-txmsg-netty</artifactId>
+			<version>5.0.2.RELEASE</version>
+		</dependency>
+
+		<!-- jdbc -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!-- jdbc end -->
+		<!-- MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- MySQL end -->
+		<!-- Connection Pool -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+		<!-- Connection Pool end -->
+
+
+		<dependency>
+			<groupId>com.codingapi.txlcn</groupId>
+			<artifactId>txlcn-tm</artifactId>
+			<version>5.0.2.RELEASE</version>
+		</dependency>
+
     </dependencies>
 
 	<dependencyManagement>

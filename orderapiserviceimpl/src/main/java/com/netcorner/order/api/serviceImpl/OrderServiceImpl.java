@@ -2,7 +2,9 @@ package com.netcorner.order.api.serviceImpl;
 
 import com.netcorner.api.order.service.OrderService;
 import com.netcorner.order.api.feign.MemberServiceFeign;
+import com.netcorner.order.service.LcnService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private MemberServiceFeign memberServiceFeign;
+
 
     @Override
     public String payment() {
@@ -34,6 +37,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String addcartOther() {
+
         return restTemplate.getForEntity("http://service-member/getInfo", String.class).getBody();
+    }
+    @Autowired
+    private LcnService lcnService;
+
+    /**
+     * 测试分布式事务
+     * @return
+     */
+    @RequestMapping("/txlcn")
+    public String execute(String x) {
+        return lcnService.execute(x)+"";
     }
 }

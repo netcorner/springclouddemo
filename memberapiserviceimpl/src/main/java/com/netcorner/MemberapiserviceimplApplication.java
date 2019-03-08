@@ -1,5 +1,6 @@
 package com.netcorner;
 
+import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient //发现eureka服务
 @EnableEurekaClient //注册eureka服务
 @SpringBootApplication //springboot开启
+@EnableDistributedTransaction //开启分布式做事务
 public class MemberapiserviceimplApplication {
 
 	public static void main(String[] args) {
