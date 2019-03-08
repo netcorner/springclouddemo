@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>memberapiservice</artifactId>
-
+    <description>会员服务接口包</description>
 
 </project>

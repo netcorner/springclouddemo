@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by shijiufeng on 2019/3/5.
+ * 错误页在spring cloud中不要配置
  */
 @Component
 class MyErrorPageRegistrar implements ErrorPageRegistrar {

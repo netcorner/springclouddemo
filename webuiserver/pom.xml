@@ -12,7 +12,15 @@
 	<artifactId>webuiserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webuiserver</name>
-	<description>Demo project for Spring Boot</description>
+	<description>
+		通用web ui demo
+		单项目时亦可适用，spring cloud 可以去掉一些错误拦截和日志相关处理
+		视图层：velocity
+		服务层：实现单、多数据源的事务处理能力 Transactional MultiTransactional
+		数据访问层：sqlmapper 实现单、多数据源的事务处理能力，连接池用druid，数据库mysql
+		日志使用log4j:错误会发送给开发者邮箱账号去，拦截每个请求，记录每个错误
+		缓存：采用redis通过key相关表达式及相关条件创建缓存+spring 注解（在service层）
+	</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -31,7 +39,12 @@
 		</dependency>
 		<!-- springboot web end -->
 
-
+		<!-- 熔断器 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+		<!-- 熔断器 -->
 
 		<!-- 日志log4j -->
 		<dependency>

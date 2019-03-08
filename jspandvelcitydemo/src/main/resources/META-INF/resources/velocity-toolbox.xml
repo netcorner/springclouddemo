@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+    <tool>
+        <key>date</key>
+        <scope>request</scope>
+        <class>
+            org.apache.velocity.tools.generic.DateTool
+        </class>
+        <parameter name="format" value="yyyy-MM-dd HH:mm:ss"/>
+    </tool>
+    <!--<tool>-->
+        <!--<key>stringTools</key>-->
+        <!--<scope>request</scope>-->
+        <!--<class>-->
+            <!--com.netcorner.webui.utils.StringTools-->
+        <!--</class>-->
+    <!--</tool>-->
+</toolbox>
