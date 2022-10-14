@@ -6,6 +6,8 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -21,9 +23,11 @@ public class SendMsgController {
     //3.开启绑定（结合）
     @RequestMapping("/sendMsg")
     public String sendMsg(){
+        Map<String,Object> hash=new HashMap<>();
         String msg= UUID.randomUUID().toString();
+        hash.put("msg",msg);
         System.out.println("生产者发送内容 Msg:"+msg);
-        Message build= MessageBuilder.withPayload(msg.getBytes()).build();
+        Message build= MessageBuilder.withPayload(hash).build();
         sendMessageInterface.sendMsg().send(build);
         return "sucess";
     }

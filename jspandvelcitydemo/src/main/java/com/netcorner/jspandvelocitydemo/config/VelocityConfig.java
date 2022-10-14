@@ -32,8 +32,6 @@ public class VelocityConfig {
     {
         VelocityViewResolver velocityViewResolver=new VelocityViewResolver();
         velocityViewResolver.setCache(false);
-
-        velocityViewResolver.setCache(false);
         velocityViewResolver.setPrefix("/templates/");
         velocityViewResolver.setSuffix(".html");
         velocityViewResolver.setDateToolAttribute("date");
@@ -42,7 +40,9 @@ public class VelocityConfig {
         velocityViewResolver.setExposeSpringMacroHelpers(true);
         velocityViewResolver.setExposeRequestAttributes(true);
         velocityViewResolver.setRequestContextAttribute("request");
-        velocityViewResolver.setToolboxConfigLocation("velocity-toolbox.xml");
+        //velocityViewResolver.setToolboxConfigLocation("/velocity-toolbox.xml");
+        //velocityViewResolver.setViewClass(VelocityToolbox20View.class);
+
 //        Properties properties=new Properties();
 //        velocityViewResolver.setVelocityProperties(properties);
         return velocityViewResolver;
@@ -51,6 +51,7 @@ public class VelocityConfig {
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver(){
         InternalResourceViewResolver internalResourceViewResolver=new InternalResourceViewResolver();
+        internalResourceViewResolver.setCache(false);
         internalResourceViewResolver.setViewClass(JstlView.class);
         internalResourceViewResolver.setPrefix("/WEB-INF/jsp/");
         internalResourceViewResolver.setSuffix(".jsp");

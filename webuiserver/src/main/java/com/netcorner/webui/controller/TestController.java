@@ -4,6 +4,9 @@ import com.netcorner.webui.service.CHRecordService;
 import com.netcorner.webui.utils.BaseController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +29,10 @@ public class TestController extends BaseController {
         return "index";
     }
 
+    @ApiOperation(value="测试redis", notes="测试redis")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "x", value = "传递是否要事务回滚，值err为要回滚其他不回滚", required = true, dataType = "String",paramType = "query")
+//    })
     @ResponseBody
     @RequestMapping("/redisTest")
     public Object redisTest(){

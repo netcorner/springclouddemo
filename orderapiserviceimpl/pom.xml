@@ -94,6 +94,20 @@
 			<version>5.0.2.RELEASE</version>
 		</dependency>
 		<!-- 分布式事务依赖 end -->
+
+		<!-- 文档测试接口生成  -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<!-- 文档测试接口生成 end -->
 	</dependencies>
 
 	<dependencyManagement>

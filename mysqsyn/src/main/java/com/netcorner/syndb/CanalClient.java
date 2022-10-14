@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Queue;
@@ -33,7 +34,7 @@ public class CanalClient {
     @Value("${canal.server.password}")
     private String password;
 
-
+    private List<String> dir=new ArrayList<>();
 
     //sql队列
     private Queue<String> SQL_QUEUE = new ConcurrentLinkedQueue<>();
@@ -45,7 +46,21 @@ public class CanalClient {
      * canal入库方法
      */
     public void run() {
-
+        dir.add("int");
+        dir.add("integer");
+        dir.add("bigint");
+        dir.add("bit");
+        dir.add("double");
+        dir.add("float");
+        dir.add("mediumint");
+        dir.add("smallint");
+        dir.add("timestamp");
+        dir.add("time");
+        dir.add("decimal");
+        dir.add("tinyint");
+        dir.add("year");
+        dir.add("date");
+        dir.add("datetime");
         CanalConnector connector = CanalConnectors.newSingleConnector(new InetSocketAddress(host,
                 port), destination, username, password);
         int batchSize = 1000;
@@ -128,8 +143,27 @@ public class CanalClient {
                 List<Column> newColumnList = rowData.getAfterColumnsList();
                 StringBuffer sql = new StringBuffer("update " + entry.getHeader().getTableName() + " set ");
                 for (int i = 0; i < newColumnList.size(); i++) {
-                    sql.append(" " + newColumnList.get(i).getName()
-                            + " = '" + newColumnList.get(i).getValue() + "'");
+
+                    String type=newColumnList.get(i).getMysqlType();
+                    boolean flag=false;
+                    if(dir.contains(type)){
+                        if(newColumnList.get(i).getValue()==null){
+                            flag=true;
+                            sql.append(" " + newColumnList.get(i).getName()
+                                    + " = null");
+
+                        }
+                    }
+                    if(!flag){
+                        sql.append(" " + newColumnList.get(i).getName()
+                                + " = '" + newColumnList.get(i).getValue() + "'");
+
+                    }
+
+
+
+
+
                     if (i != newColumnList.size() - 1) {
                         sql.append(",");
                     }
@@ -189,6 +223,7 @@ public class CanalClient {
                 List<Column> columnList = rowData.getAfterColumnsList();
                 StringBuffer sql = new StringBuffer("insert into " + entry.getHeader().getTableName() + " (");
                 for (int i = 0; i < columnList.size(); i++) {
+                    //System.out.println("mysql:=======>"+columnList.get(i).getMysqlType()+","+columnList.get(i).getSqlType());
                     sql.append(columnList.get(i).getName());
                     if (i != columnList.size() - 1) {
                         sql.append(",");
@@ -196,8 +231,21 @@ public class CanalClient {
                 }
                 sql.append(") VALUES (");
                 for (int i = 0; i < columnList.size(); i++) {
-                    sql.append("'" + columnList.get(i).getValue() + "'");
-                    if (i != columnList.size() - 1) {
+                    String type=columnList.get(i).getMysqlType();
+
+                    boolean flag=false;
+                    if(dir.contains(type)){
+                        if(columnList.get(i).getValue()==null){
+                            flag=true;
+                            sql.append("null");
+                        }
+                    }
+                    if(!flag){
+                        sql.append("'" + columnList.get(i).getValue() + "'");
+                    }
+
+
+                        if (i != columnList.size() - 1) {
                         sql.append(",");
                     }
                 }

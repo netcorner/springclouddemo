@@ -10,7 +10,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2 //开启swagger2 访问：http://IP:port/{context-path}/swagger-ui.html
 @EnableCircuitBreaker //开启服务保护
 @EnableFeignClients //开启feign客户端
 @EnableDiscoveryClient //发现eureka服务

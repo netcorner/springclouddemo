@@ -132,7 +132,7 @@
 		<dependency>
 			<groupId>com.github.netcorner</groupId>
 			<artifactId>sqlmapper</artifactId>
-			<version>1.1</version>
+			<version>2.2.0</version>
 		</dependency>
 		<!-- sqlmapper依赖组件 -->
 
@@ -165,6 +165,25 @@
 		<!-- redis缓存 end -->
 
 
+
+		<!-- 文档测试接口生成  -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!-- 文档测试接口生成 end -->
 
 
 		<!--&lt;!&ndash; 多数据源分布式事务&ndash;&gt;-->

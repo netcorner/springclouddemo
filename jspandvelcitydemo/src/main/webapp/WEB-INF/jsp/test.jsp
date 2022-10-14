@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-hello jsp
+hello jsp11web-inf
 </body>
 </html>

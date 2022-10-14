@@ -34,7 +34,7 @@ public class MultiTransactionalAspect {
     }
 
 
-    private static Logger logger = Logger.getLogger(SQLMap.class);
+    private static Logger logger = Logger.getLogger(MultiTransactionalAspect.class);
     /**
      * 切入点
      *
