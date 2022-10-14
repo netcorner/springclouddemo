@@ -229,6 +229,7 @@ public class CanalClient {
                         sql.append(",");
                     }
                 }
+
                 sql.append(") VALUES (");
                 for (int i = 0; i < columnList.size(); i++) {
                     String type=columnList.get(i).getMysqlType();
